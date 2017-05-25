@@ -49,15 +49,25 @@ namespace _8_лабораторка
                 l = 0;
                 try
                 {
-                    V = (Math.PI * Math.Pow(R, 2) * H) / 3;
+                    double s = (1 / 3);
+                    V = (Math.PI * Math.Pow(R, 2) * H) * s;
                 }
-                catch(OverflowException)
+                catch when (double.IsInfinity(V))
                 {
-                    Console.WriteLine("Переполнение при выполнении арифметических операций. Программа запустится заново...");
+                    Console.WriteLine("Слишком большое значение. Программа запустится заново...");
                     Console.ReadLine();
                     ++l;
                 }
+                catch when (double.IsNaN(V))
+                {
+                    Console.WriteLine("Неявный ответ. Программа запустится заново...");
+                    Console.ReadLine();
+                    ++l;
+                }
+                
+
             } while (l == 1);
+            
             Console.WriteLine("Объем конуса, в котором H = " + H + ", и R = " + R + ", равен " + V + ".");
         }
     }
