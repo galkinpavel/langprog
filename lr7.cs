@@ -112,7 +112,7 @@ namespace _7_лабораторная
             {
                 for (int j = position_k; j != 0; --j)
                 {
-                    for (int i = 0; i < k; ++i)
+                    for (int i = 0; i < n; ++i)
                     {
                         buf = massive[i, j];
                         massive[i, j] = massive[i, j - 1];
